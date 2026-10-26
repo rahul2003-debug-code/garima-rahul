@@ -1,114 +1,133 @@
-// Wedding Configuration & Details (Accurately transcribed from the authentic printed invitation)
+import strings from './encodedStrings.json';
+
+const decode = (s) => {
+  if (!s) return '';
+  if (Array.isArray(s)) return s.map(decode);
+  if (typeof window !== 'undefined' && window.atob) {
+    try {
+      return decodeURIComponent(escape(window.atob(s)));
+    } catch (e) {
+      return window.atob(s);
+    }
+  }
+  if (typeof Buffer !== 'undefined') {
+    return Buffer.from(s, 'base64').toString('utf8');
+  }
+  return s;
+};
+
+export const H = {};
+for (const [k, v] of Object.entries(strings)) {
+  H[k] = decode(v);
+}
+
 export const BASE_URL = import.meta.env.BASE_URL || '/';
 
 export const WEDDING_DATA = {
   couple: {
     bride: {
-      firstName: "गरिमा",
-      fullName: "गरिमा वर्मा",
-      title: "हृदयकणिका",
-      designation: "ब्रान्च पोस्ट मास्टर",
+      firstName: H.brideFirst,
+      fullName: H.brideFull,
+      title: H.brideTitle,
+      designation: H.brideDesig,
       photo: `${BASE_URL}images/bride.jpg`,
-      grandParents: "श्रीमती जगवंती देवी एवं स्व. बसन्त लाल",
-      parents: "श्रीमती पूनम वर्मा एवं विनोद कुमार",
-      address: "ग्राम- भलवां, पोस्ट- रूपौधा, जिला- मीरजापुर (पिन: 231305)",
-      badge: "वधू"
+      grandParents: H.brideGrandparents,
+      parents: H.brideParents,
+      address: H.brideAddress,
+      badge: H.brideBadge
     },
     groom: {
-      firstName: "राहुल",
-      fullName: "राहुल कुमार",
-      title: "हृदयांश",
-      designation: "साफ्टवेयर इंजीनियर",
+      firstName: H.groomFirst,
+      fullName: H.groomFull,
+      title: H.groomTitle,
+      designation: H.groomDesig,
       photo: `${BASE_URL}images/groom.jpg`,
-      grandParents: "श्रीमती सरस्वती देवी एवं स्व. मोती लाल राम",
-      parents: "श्री अशोक एवं स्व. लालसा देवी",
-      address: "ग्राम व पोस्ट- मसोन, जिला- गाजीपुर",
-      badge: "वर"
+      grandParents: H.groomGrandparents,
+      parents: H.groomParents,
+      address: H.groomAddress,
+      badge: H.groomBadge
     }
   },
 
   invitationHeader: {
-    ganeshMantra: "॥ श्री गणेशाय नमः ॥",
-    ganeshDoha: "विघ्न हरण मंगल करन, श्री गणपति महाराज। प्रथम निमंत्रण आपको, पूरन कीजै सब काज॥",
-    kashiBlessing: "देवाधिदेव बाबा श्री काशी विश्वनाथ जी एवं माँ अन्नपूर्णा जी की असीम अनुकम्पा व आशीर्वाद से...",
-    vishnuMantra: "मंगलम् भगवान विष्णुः मंगलम् गरुड़ ध्वजः। मंगलम् पुण्डरीकाक्षः मंगलाय तनोहरिः ॥"
+    ganeshMantra: H.ganeshMantra,
+    ganeshDoha: H.ganeshDoha,
+    kashiBlessing: H.kashiBlessing,
+    vishnuMantra: H.vishnuMantra,
+    sadaMangalam: H.sadaMangalam
   },
 
   invitationBody: {
-    bondTitle: "॥ परिणय सूत्र बन्धन ॥",
-    openingMessage: "स्नेही स्वजन,\nदेवाधिदेव बाबा श्री काशी विश्वनाथ जी एवं माँ अन्नपूर्णा जी की असीम अनुकम्पा व आशीर्वाद से हमारे परिवार के परिणय सूत्र बन्धन की इस पावन बेला पर आप सादर आमंत्रित हैं।",
-    requestMessage: "की मंगल बेला पर आप नवयुगल के भावी जीवन पथ को अपने स्नेहित आशीर्वाद की मृदुल ज्योत्सना से आलोकित कर हमें अनुगृहीत करें।",
+    bondTitle: H.bondTitle,
+    requestMessage: H.invitationRequest,
+    sang: H.sang,
+    coupleNames: H.coupleNames,
     shayariAagrah: {
-      title: ":: विशेष आग्रह ::",
-      line1: "भूल न जाना शादी का Date, आना मेरे Gate,",
-      line2: "गरिमा की शादी है, हम करेंगे आपका Wait......"
+      title: H.shayariTitle,
+      line1: H.shayariLine1,
+      line2: H.shayariLine2
     }
   },
 
   events: [
     {
       id: "shubh-vivah",
-      badge: "मुख्य वैवाहिक समारोह",
-      title: "शुभ-विवाह (पाणिग्रहण संस्कार)",
-      date: "11 नवम्बर 2026",
+      badge: H.vivahBadge,
+      title: H.shubhVivahTitle,
+      date: H.vivahDate,
+      fullDate: H.vivahDateFull,
       day: "बुधवार",
-      time: "रात्रि लग्नानुसार (बारात आगमन एवं जयमाल)",
+      time: H.vivahTime,
       icon: "wedding",
-      description: "बारात स्वागत, द्वारपूजा, शुभ जयमाल एवं वैदिक मंत्रोच्चार के साथ पाणिग्रहण संस्कार संपन्न होगा।",
+      description: H.vivahDesc,
       isHighlight: true,
       calendarEvent: {
-        title: "गरिमा संग राहुल - शुभ विवाह समारोह",
+        title: `${H.coupleNames} - शुभ विवाह`,
         start: "20261111T190000",
         end: "20261112T030000",
-        location: "ओम् मंगलम् लॉन, रमना (पुलिस चौकी के आगे), वाराणसी"
+        location: `${H.venueName}, ${H.venueLocation}`
       }
     },
     {
       id: "vidaai",
-      badge: "मंगल विदाई बेला",
-      title: "भीगी पलकें (मंगल विदाई)",
-      date: "12 नवम्बर 2026",
+      badge: H.vidaaiBadge,
+      title: H.vidaaiTitle,
+      date: H.vidaaiDate,
+      fullDate: H.vidaaiDateFull,
       day: "गुरुवार",
-      time: "प्रातः काल",
+      time: H.vidaaiTime,
       icon: "vidaai",
-      description: "आशीर्वाद, स्नेह एवं मंगल कामनाओं के साथ वधू विदाई की पावन बेला।",
+      description: H.vidaaiDesc,
       isHighlight: false,
       calendarEvent: {
-        title: "गरिमा संग राहुल - विदाई बेला",
+        title: `${H.coupleNames} - विदाई बेला`,
         start: "20261112T080000",
         end: "20261112T110000",
-        location: "ओम् मंगलम् लॉन, रमना, वाराणसी"
+        location: `${H.venueName}, ${H.venueLocation}`
       }
     }
   ],
 
   venue: {
-    name: "ओम् मंगलम् लॉन",
-    locationDetails: "रमना (पुलिस चौकी के आगे), वाराणसी, उत्तर प्रदेश",
-    shortCity: "वाराणसी (काशी)",
+    name: H.venueName,
+    locationDetails: H.venueLocation,
+    shortCity: H.venueCity,
     mapsQuery: "Om Mangalam Lawn Ramna Varanasi",
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=Om+Mangalam+Lawn+Ramna+Varanasi",
-    directionsNote: "रमना पुलिस चौकी से आगे, मुख्य मार्ग के समीप। पार्किंग एवं समस्त वैवाहिक सुविधाएं उपलब्ध।"
+    venueNote: H.venueNote,
+    directionsNote: H.venueLandmark
   },
 
   family: {
-    darshanabhilashi: [
-      "उज्ज्वल वर्मा",
-      "रामचरन",
-      "रामजतन",
-      "राजकुमार",
-      "परिपूर्णानन्द (मामा जी)",
-      "अमित",
-      "लालता",
-      "एवं समस्त वर्मा परिवार"
-    ],
+    darshanabhilashiFamily: H.darshanabhilashiFamily,
+    darshanabhilashi: H.darshanabhilashiList,
     vineet: {
-      name: "विनोद कुमार",
-      address: "ग्राम- भलवां, पोस्ट- रूपौधा, जिला- मीरजापुर"
+      name: H.vineetName,
+      address: H.vineetAddress
     },
     contacts: [
       {
-        name: "विनोद कुमार",
+        name: H.vineetName,
         number: "9956281258",
         label: "मुख्य प्रेषक"
       },
@@ -124,13 +143,13 @@ export const WEDDING_DATA = {
     {
       id: "cover",
       name: "मुख्य आवरण पृष्ठ (Front Cover)",
-      description: "॥ श्री गणेशाय नमः ॥ शुभ विवाह - गरिमा संग राहुल",
+      description: `${H.ganeshMantra} शुभ विवाह - ${H.coupleNames}`,
       src: `${BASE_URL}images/invitation-cover.jpg`
     },
     {
       id: "schedule",
       name: "मांगलिक कार्यक्रम (Schedule)",
-      description: "शुभ-विवाह एवं भीगी पलकें विवरण",
+      description: `${H.shubhVivahTitle} एवं ${H.vidaaiTitle}`,
       src: `${BASE_URL}images/mangalik-karyakram.jpg`
     },
     {
@@ -144,13 +163,13 @@ export const WEDDING_DATA = {
   musicTracks: [
     {
       id: "hamari-shaadi",
-      title: "हमारी शादी में... (विवाह स्पेशल)",
+      title: H.track1Title,
       artist: "Vivah Special Song",
       src: `${BASE_URL}audio/hamari-shaadi-mein.mp3`
     },
     {
       id: "shehnai",
-      title: "शुभ विवाह मंगल शहनाई",
+      title: H.track2Title,
       artist: "Royal Wedding Shehnai",
       src: `${BASE_URL}audio/wedding-song.mp3`
     }
