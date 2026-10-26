@@ -1,0 +1,401 @@
+/* ==========================================================================
+   ROYAL INDIAN WEDDING DESIGN SYSTEM - GARIMA & RAHUL
+   Royal Maroon, Velvet Crimson & Radiant Gold Foil
+   ========================================================================== */
+
+:root {
+  /* Royal Color Palette */
+  --royal-maroon-deep: #160004;
+  --royal-maroon-dark: #2A0108;
+  --royal-maroon-rich: #42030E;
+  --royal-maroon-card: rgba(46, 3, 11, 0.78);
+  --royal-maroon-glass: rgba(58, 5, 16, 0.65);
+
+  /* Radiant Gold Foil Accents */
+  --gold-primary: #D4AF37;
+  --gold-light: #FBE5A2;
+  --gold-super-light: #FFF8E7;
+  --gold-dark: #91681E;
+  --gold-glow: rgba(212, 175, 55, 0.45);
+  --gold-glow-soft: rgba(212, 175, 55, 0.18);
+  --gold-border: rgba(212, 175, 55, 0.4);
+  --gold-gradient: linear-gradient(135deg, #FFF3C4 0%, #E6C262 30%, #D4AF37 55%, #9E7422 100%);
+  --gold-gradient-radial: radial-gradient(circle, #FFF4D0 0%, #E2BE60 45%, #AA771C 100%);
+
+  /* Ivory & Neutral Tones */
+  --cream-ivory: #FFFBF2;
+  --cream-soft: #F5EADB;
+  --text-muted: #D5B99B;
+  --text-dark: #2A0108;
+
+  /* Typography */
+  --font-serif-royal: 'Cinzel', serif;
+  --font-decorative: 'Cinzel Decorative', cursive;
+  --font-hindi-display: 'Rozha One', 'Yatra One', serif;
+  --font-hindi-body: 'Tiro Devanagari Hindi', 'Poppins', sans-serif;
+  --font-modern: 'Poppins', sans-serif;
+  --font-script: 'Great Vibes', cursive;
+
+  /* Shadows & Elevations */
+  --shadow-royal: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.25);
+  --shadow-gold-button: 0 6px 20px rgba(212, 175, 55, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  --shadow-inner-card: inset 0 0 35px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  /* Borders & Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+  --radius-full: 9999px;
+}
+
+/* ==========================================================================
+   RESET & GLOBAL STYLES
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--royal-maroon-deep);
+  background-image: 
+    radial-gradient(ellipse at 50% 15%, #4C0310 0%, #200106 60%, #100003 100%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4AF37' fill-opacity='0.035' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  color: var(--cream-ivory);
+  font-family: var(--font-modern);
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Selection */
+::selection {
+  background: var(--gold-primary);
+  color: var(--royal-maroon-dark);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--royal-maroon-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* ==========================================================================
+   LAYOUT UTILITIES
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 4vw, 32px);
+  padding-right: clamp(16px, 4vw, 32px);
+}
+
+.text-center { text-align: center; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+
+/* ==========================================================================
+   GOLD FOIL & METALLIC TEXT EFFECTS
+   ========================================================================== */
+.gold-text-gradient {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-shadow: 0 0 1px rgba(255, 243, 196, 0.2);
+}
+
+.gold-glow-text {
+  color: var(--gold-light);
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.6), 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.hindi-title {
+  font-family: var(--font-hindi-display);
+  letter-spacing: 0.5px;
+}
+
+.english-title {
+  font-family: var(--font-serif-royal);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   ROYAL CARD BOX STYLES
+   ========================================================================== */
+.royal-card {
+  position: relative;
+  background: var(--royal-maroon-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-royal);
+  padding: clamp(24px, 5vw, 44px);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.royal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 35px rgba(212, 175, 55, 0.35);
+  border-color: rgba(212, 175, 55, 0.7);
+}
+
+/* Ornate Corner Flourishes for Royal Cards */
+.royal-card::before,
+.royal-card::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 2;
+  border-color: var(--gold-primary);
+  border-style: solid;
+}
+
+.royal-card::before {
+  top: 10px;
+  left: 10px;
+  border-width: 2px 0 0 2px;
+  border-top-left-radius: 6px;
+}
+
+.royal-card::after {
+  bottom: 10px;
+  right: 10px;
+  border-width: 0 2px 2px 0;
+  border-bottom-right-radius: 6px;
+}
+
+/* Additional corners using inner span or secondary pseudo */
+.corner-ornament-tr {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  border-width: 2px 2px 0 0;
+  border-style: solid;
+  border-color: var(--gold-primary);
+  border-top-right-radius: 6px;
+  pointer-events: none;
+}
+
+.corner-ornament-bl {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  border-width: 0 0 2px 2px;
+  border-style: solid;
+  border-color: var(--gold-primary);
+  border-bottom-left-radius: 6px;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   BUTTONS & BADGES
+   ========================================================================== */
+.btn-royal-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--gold-gradient);
+  color: var(--royal-maroon-dark);
+  font-family: var(--font-modern);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-gold-button);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-royal-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-20deg);
+  transition: 0.6s ease;
+}
+
+.btn-royal-gold:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6), 0 0 15px rgba(255, 230, 150, 0.5);
+  color: #1a0004;
+}
+
+.btn-royal-gold:hover::before {
+  left: 140%;
+}
+
+.btn-royal-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(42, 1, 8, 0.4);
+  color: var(--gold-light);
+  font-family: var(--font-modern);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--gold-border);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.btn-royal-outline:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--gold-primary);
+  color: #FFF;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+
+.royal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-full);
+  color: var(--gold-light);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+}
+
+/* ==========================================================================
+   SACRED DIVIDERS & MOTIFS
+   ========================================================================== */
+.sacred-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 28px auto;
+  width: 100%;
+  max-width: 450px;
+}
+
+.sacred-divider::before,
+.sacred-divider::after {
+  content: '';
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+.sacred-divider-icon {
+  color: var(--gold-primary);
+  filter: drop-shadow(0 0 6px var(--gold-primary));
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4), inset 0 0 10px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.8), inset 0 0 20px rgba(212, 175, 55, 0.4);
+  }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounceEqualizer {
+  0%, 100% { height: 6px; }
+  50% { height: 22px; }
+}
+
+@keyframes shimmerEffect {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float {
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Equalizer Bars */
+.eq-bar {
+  width: 3.5px;
+  background: var(--gold-primary);
+  border-radius: 2px;
+  animation: bounceEqualizer 1.2s ease-in-out infinite;
+}
+.eq-bar:nth-child(2) { animation-delay: 0.2s; }
+.eq-bar:nth-child(3) { animation-delay: 0.4s; }
+.eq-bar:nth-child(4) { animation-delay: 0.1s; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .royal-card {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+  .sacred-divider {
+    max-width: 300px;
+    gap: 10px;
+  }
+}
