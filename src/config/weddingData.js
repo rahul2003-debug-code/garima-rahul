@@ -30,7 +30,7 @@ export const WEDDING_DATA = {
       fullName: H.brideFull,
       title: H.brideTitle,
       designation: H.brideDesig,
-      photo: `${BASE_URL}images/bride.jpg`,
+      photo: `${BASE_URL}images/bride-portrait.jpg`,
       grandParents: H.brideGrandparents,
       parents: H.brideParents,
       address: H.brideAddress,

@@ -106,8 +106,8 @@ export default function HeroSection({ onOpenOriginalCard }) {
           {/* Bride Jharokha */}
           <div
             style={{
-              flex: '1 1 280px',
-              maxWidth: '340px',
+              flex: '1 1 260px',
+              maxWidth: '320px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center'
@@ -116,11 +116,11 @@ export default function HeroSection({ onOpenOriginalCard }) {
             <div
               style={{
                 position: 'relative',
-                width: 'clamp(210px, 42vw, 260px)',
-                height: 'clamp(280px, 56vw, 340px)',
-                borderRadius: '130px 130px 24px 24px', // Royal arched dome shape
+                width: 'clamp(220px, 44vw, 270px)',
+                height: 'clamp(290px, 58vw, 360px)',
+                borderRadius: '135px 135px 24px 24px', // Royal arched dome shape
                 border: '3px solid var(--gold-primary)',
-                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.35)',
+                boxShadow: '0 18px 45px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.45)',
                 overflow: 'hidden',
                 background: 'linear-gradient(180deg, #4A030D 0%, #150003 100%)',
                 padding: '5px'
@@ -133,55 +133,46 @@ export default function HeroSection({ onOpenOriginalCard }) {
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  borderRadius: '124px 124px 20px 20px',
+                  objectPosition: 'center 10%',
+                  borderRadius: '128px 128px 20px 20px',
                   display: 'block'
                 }}
               />
+            </div>
+
+            {/* Royal Placard Below Bride Photo */}
+            <div style={{ marginTop: '16px', textAlign: 'center' }}>
               <div
+                className="royal-badge"
                 style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: 'linear-gradient(to top, rgba(16, 0, 3, 0.95) 0%, rgba(16, 0, 3, 0.3) 70%, transparent 100%)',
-                  padding: '24px 12px 12px 12px',
-                  textAlign: 'center'
+                  marginBottom: '8px',
+                  background: 'rgba(212, 175, 55, 0.18)',
+                  border: '1px solid var(--gold-primary)',
+                  color: 'var(--gold-light)'
                 }}
               >
-                <div
-                  style={{
-                    fontFamily: 'var(--font-hindi-display)',
-                    fontSize: '1.25rem',
-                    color: 'var(--gold-light)',
-                    fontWeight: 600
-                  }}
-                >
-                  {couple.bride.fullName}
-                </div>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-hindi-body)',
-                    fontSize: '0.85rem',
-                    color: 'var(--text-muted)'
-                  }}
-                >
-                  ({couple.bride.designation})
-                </div>
+                वधू (दुल्हन)
               </div>
-            </div>
-            <div
-              style={{
-                marginTop: '12px',
-                background: 'rgba(212, 175, 55, 0.12)',
-                border: '1px solid var(--gold-border)',
-                borderRadius: '999px',
-                padding: '4px 18px',
-                color: 'var(--gold-light)',
-                fontSize: '0.86rem',
-                fontFamily: 'var(--font-hindi-body)'
-              }}
-            >
-              वधू (दुल्हन)
+              <h3
+                className="gold-glow-text"
+                style={{
+                  fontFamily: 'var(--font-hindi-display)',
+                  fontSize: 'clamp(1.4rem, 3.5vw, 1.8rem)',
+                  margin: '0 0 4px 0',
+                  fontWeight: 700
+                }}
+              >
+                {couple.bride.fullName}
+              </h3>
+              <div
+                style={{
+                  fontFamily: 'var(--font-modern)',
+                  fontSize: '0.88rem',
+                  color: 'var(--text-muted)'
+                }}
+              >
+                ({couple.bride.designation})
+              </div>
             </div>
           </div>
 
@@ -192,7 +183,8 @@ export default function HeroSection({ onOpenOriginalCard }) {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '8px'
+              gap: '8px',
+              padding: '0 8px'
             }}
           >
             <div
@@ -214,8 +206,9 @@ export default function HeroSection({ onOpenOriginalCard }) {
             <span
               style={{
                 fontFamily: 'var(--font-hindi-display)',
-                fontSize: '1.1rem',
-                color: 'var(--gold-light)'
+                fontSize: '1.2rem',
+                color: 'var(--gold-light)',
+                fontWeight: 600
               }}
             >
               संग
@@ -225,8 +218,8 @@ export default function HeroSection({ onOpenOriginalCard }) {
           {/* Groom Jharokha */}
           <div
             style={{
-              flex: '1 1 280px',
-              maxWidth: '340px',
+              flex: '1 1 260px',
+              maxWidth: '320px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center'
@@ -235,11 +228,11 @@ export default function HeroSection({ onOpenOriginalCard }) {
             <div
               style={{
                 position: 'relative',
-                width: 'clamp(210px, 42vw, 260px)',
-                height: 'clamp(280px, 56vw, 340px)',
-                borderRadius: '130px 130px 24px 24px', // Royal arched dome shape
+                width: 'clamp(220px, 44vw, 270px)',
+                height: 'clamp(290px, 58vw, 360px)',
+                borderRadius: '135px 135px 24px 24px', // Royal arched dome shape
                 border: '3px solid var(--gold-primary)',
-                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.35)',
+                boxShadow: '0 18px 45px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.45)',
                 overflow: 'hidden',
                 background: 'linear-gradient(180deg, #4A030D 0%, #150003 100%)',
                 padding: '5px'
@@ -252,55 +245,46 @@ export default function HeroSection({ onOpenOriginalCard }) {
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  borderRadius: '124px 124px 20px 20px',
+                  objectPosition: 'center 15%',
+                  borderRadius: '128px 128px 20px 20px',
                   display: 'block'
                 }}
               />
+            </div>
+
+            {/* Royal Placard Below Groom Photo */}
+            <div style={{ marginTop: '16px', textAlign: 'center' }}>
               <div
+                className="royal-badge"
                 style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: 'linear-gradient(to top, rgba(16, 0, 3, 0.95) 0%, rgba(16, 0, 3, 0.3) 70%, transparent 100%)',
-                  padding: '24px 12px 12px 12px',
-                  textAlign: 'center'
+                  marginBottom: '8px',
+                  background: 'rgba(212, 175, 55, 0.18)',
+                  border: '1px solid var(--gold-primary)',
+                  color: 'var(--gold-light)'
                 }}
               >
-                <div
-                  style={{
-                    fontFamily: 'var(--font-hindi-display)',
-                    fontSize: '1.25rem',
-                    color: 'var(--gold-light)',
-                    fontWeight: 600
-                  }}
-                >
-                  {couple.groom.fullName}
-                </div>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-hindi-body)',
-                    fontSize: '0.85rem',
-                    color: 'var(--text-muted)'
-                  }}
-                >
-                  ({couple.groom.designation})
-                </div>
+                वर (दूल्हा)
               </div>
-            </div>
-            <div
-              style={{
-                marginTop: '12px',
-                background: 'rgba(212, 175, 55, 0.12)',
-                border: '1px solid var(--gold-border)',
-                borderRadius: '999px',
-                padding: '4px 18px',
-                color: 'var(--gold-light)',
-                fontSize: '0.86rem',
-                fontFamily: 'var(--font-hindi-body)'
-              }}
-            >
-              वर (दूल्हा)
+              <h3
+                className="gold-glow-text"
+                style={{
+                  fontFamily: 'var(--font-hindi-display)',
+                  fontSize: 'clamp(1.4rem, 3.5vw, 1.8rem)',
+                  margin: '0 0 4px 0',
+                  fontWeight: 700
+                }}
+              >
+                {couple.groom.fullName}
+              </h3>
+              <div
+                style={{
+                  fontFamily: 'var(--font-modern)',
+                  fontSize: '0.88rem',
+                  color: 'var(--text-muted)'
+                }}
+              >
+                ({couple.groom.designation})
+              </div>
             </div>
           </div>
         </div>

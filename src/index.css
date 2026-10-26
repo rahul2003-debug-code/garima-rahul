@@ -399,3 +399,15 @@ body {
     gap: 10px;
   }
 }
+
+/* Mobile Quick Navigation Bar - Hidden on Desktop to avoid overlap */
+.mobile-quick-nav {
+  display: flex !important;
+}
+
+@media (min-width: 860px) {
+  .mobile-quick-nav {
+    display: none !important;
+  }
+}
+

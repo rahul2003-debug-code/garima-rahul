@@ -28,6 +28,7 @@ export default function FloatingQuickBar({ onOpenOriginalCard }) {
 
   return (
     <nav
+      className="mobile-quick-nav"
       style={{
         position: 'fixed',
         bottom: '12px',
